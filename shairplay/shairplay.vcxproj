@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{5F835028-2038-44F8-86F1-BDE64402E2D5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>shairplay</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\shairplay\dnssd.h" />
+    <ClInclude Include="include\shairplay\raop.h" />
+    <ClInclude Include="src\lib\aes_ctr.h" />
+    <ClInclude Include="src\lib\alac\alac.h" />
+    <ClInclude Include="src\lib\alac\stdint_win.h" />
+    <ClInclude Include="src\lib\base64.h" />
+    <ClInclude Include="src\lib\compat.h" />
+    <ClInclude Include="src\lib\crypto\bigint.h" />
+    <ClInclude Include="src\lib\crypto\bigint_impl.h" />
+    <ClInclude Include="src\lib\crypto\config.h" />
+    <ClInclude Include="src\lib\crypto\crypto.h" />
+    <ClInclude Include="src\lib\crypto\os_port.h" />
+    <ClInclude Include="src\lib\curve25519\curve25519.h" />
+    <ClInclude Include="src\lib\digest.h" />
+    <ClInclude Include="src\lib\dnssdint.h" />
+    <ClInclude Include="src\lib\ed25519\ed25519.h" />
+    <ClInclude Include="src\lib\ed25519\fe.h" />
+    <ClInclude Include="src\lib\ed25519\fixedint.h" />
+    <ClInclude Include="src\lib\ed25519\ge.h" />
+    <ClInclude Include="src\lib\ed25519\precomp_data.h" />
+    <ClInclude Include="src\lib\ed25519\sc.h" />
+    <ClInclude Include="src\lib\ed25519\sha512.h" />
+    <ClInclude Include="src\lib\fairplay.h" />
+    <ClInclude Include="src\lib\global.h" />
+    <ClInclude Include="src\lib\httpd.h" />
+    <ClInclude Include="src\lib\http_parser.h" />
+    <ClInclude Include="src\lib\http_request.h" />
+    <ClInclude Include="src\lib\http_response.h" />
+    <ClInclude Include="src\lib\logger.h" />
+    <ClInclude Include="src\lib\memalign.h" />
+    <ClInclude Include="src\lib\netutils.h" />
+    <ClInclude Include="src\lib\pairing.h" />
+    <ClInclude Include="src\lib\playfair\omg_hax.h" />
+    <ClInclude Include="src\lib\playfair\playfair.h" />
+    <ClInclude Include="src\lib\plist.h" />
+    <ClInclude Include="src\lib\raop_buffer.h" />
+    <ClInclude Include="src\lib\raop_handlers.h" />
+    <ClInclude Include="src\lib\raop_rtp.h" />
+    <ClInclude Include="src\lib\rsakey.h" />
+    <ClInclude Include="src\lib\rsapem.h" />
+    <ClInclude Include="src\lib\sdp.h" />
+    <ClInclude Include="src\lib\sockets.h" />
+    <ClInclude Include="src\lib\threads.h" />
+    <ClInclude Include="src\lib\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\aes_ctr.c" />
+    <ClCompile Include="src\lib\alac\alac.c" />
+    <ClCompile Include="src\lib\base64.c" />
+    <ClCompile Include="src\lib\crypto\aes.c" />
+    <ClCompile Include="src\lib\crypto\bigint.c" />
+    <ClCompile Include="src\lib\crypto\hmac.c" />
+    <ClCompile Include="src\lib\crypto\md5.c" />
+    <ClCompile Include="src\lib\crypto\rc4.c" />
+    <ClCompile Include="src\lib\crypto\sha1.c" />
+    <ClCompile Include="src\lib\curve25519\curve25519-donna.c" />
+    <ClCompile Include="src\lib\digest.c" />
+    <ClCompile Include="src\lib\dnssd.c" />
+    <ClCompile Include="src\lib\ed25519\add_scalar.c" />
+    <ClCompile Include="src\lib\ed25519\fe.c" />
+    <ClCompile Include="src\lib\ed25519\ge.c" />
+    <ClCompile Include="src\lib\ed25519\keypair.c" />
+    <ClCompile Include="src\lib\ed25519\key_exchange.c" />
+    <ClCompile Include="src\lib\ed25519\sc.c" />
+    <ClCompile Include="src\lib\ed25519\seed.c" />
+    <ClCompile Include="src\lib\ed25519\sha512.c" />
+    <ClCompile Include="src\lib\ed25519\sign.c" />
+    <ClCompile Include="src\lib\ed25519\verify.c" />
+    <ClCompile Include="src\lib\fairplay_dummy.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\lib\fairplay_playfair.c" />
+    <ClCompile Include="src\lib\httpd.c" />
+    <ClCompile Include="src\lib\http_parser.c" />
+    <ClCompile Include="src\lib\http_request.c" />
+    <ClCompile Include="src\lib\http_response.c" />
+    <ClCompile Include="src\lib\logger.c" />
+    <ClCompile Include="src\lib\netutils.c" />
+    <ClCompile Include="src\lib\pairing.c" />
+    <ClCompile Include="src\lib\playfair\hand_garble.c" />
+    <ClCompile Include="src\lib\playfair\modified_md5.c" />
+    <ClCompile Include="src\lib\playfair\omg_hax.c" />
+    <ClCompile Include="src\lib\playfair\playfair.c" />
+    <ClCompile Include="src\lib\playfair\sap_hash.c" />
+    <ClCompile Include="src\lib\plist.c" />
+    <ClCompile Include="src\lib\raop.c" />
+    <ClCompile Include="src\lib\raop_buffer.c" />
+    <ClCompile Include="src\lib\raop_rtp.c" />
+    <ClCompile Include="src\lib\rsakey.c" />
+    <ClCompile Include="src\lib\rsapem.c" />
+    <ClCompile Include="src\lib\sdp.c" />
+    <ClCompile Include="src\lib\utils.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\lib\ed25519\license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\lib\dnssd.m" />
+    <None Include="src\lib\Makefile.am" />
+    <None Include="src\lib\playfair\LICENSE.md" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

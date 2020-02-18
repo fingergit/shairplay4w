@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/shairplay4w/metadata.bin
+/shairplay4w/coverart.jpg
+/shairplay4w/audio.pcm

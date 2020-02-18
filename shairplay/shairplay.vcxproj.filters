@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="alac">
+      <UniqueIdentifier>{ed34290a-53c2-4820-9d45-0fc0fa8b75a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crypto">
+      <UniqueIdentifier>{a721b07e-673e-4903-8433-d15c38ad33f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="curve25519">
+      <UniqueIdentifier>{b368c3e7-f64d-403f-9d47-fc61dc9067e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ed25519">
+      <UniqueIdentifier>{abe7fe99-faff-48b9-95a8-9cfd657f8c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playfair">
+      <UniqueIdentifier>{38b562e1-d6fd-4693-83c8-c85a310d7680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shairplay">
+      <UniqueIdentifier>{d8040aa7-388b-4a59-b96d-f072047e051a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{14485e56-9761-460b-8cd4-9cb378a0b064}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\lib\alac\alac.h">
+      <Filter>alac</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\alac\stdint_win.h">
+      <Filter>alac</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\crypto\bigint.h">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\crypto\bigint_impl.h">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\crypto\config.h">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\crypto\crypto.h">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\crypto\os_port.h">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\curve25519\curve25519.h">
+      <Filter>curve25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\ed25519.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\fe.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\fixedint.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\ge.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\precomp_data.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\sc.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\ed25519\sha512.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\playfair\omg_hax.h">
+      <Filter>playfair</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\playfair\playfair.h">
+      <Filter>playfair</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\aes_ctr.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\base64.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\compat.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\digest.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\dnssdint.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\fairplay.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\global.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\http_parser.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\http_request.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\http_response.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\httpd.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\logger.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\memalign.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\netutils.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\pairing.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\plist.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\raop_buffer.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\raop_handlers.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\raop_rtp.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\rsakey.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\rsapem.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\sdp.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\sockets.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\threads.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\utils.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shairplay\dnssd.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shairplay\raop.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\alac\alac.c">
+      <Filter>alac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\aes.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\bigint.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\hmac.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\md5.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\rc4.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\crypto\sha1.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\curve25519\curve25519-donna.c">
+      <Filter>curve25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\add_scalar.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\fe.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\ge.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\key_exchange.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\keypair.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\sc.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\seed.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\sha512.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\sign.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ed25519\verify.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\playfair\hand_garble.c">
+      <Filter>playfair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\playfair\modified_md5.c">
+      <Filter>playfair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\playfair\omg_hax.c">
+      <Filter>playfair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\playfair\playfair.c">
+      <Filter>playfair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\playfair\sap_hash.c">
+      <Filter>playfair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\aes_ctr.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\base64.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\digest.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\dnssd.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\fairplay_dummy.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\fairplay_playfair.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\http_parser.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\http_request.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\http_response.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\httpd.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\logger.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\netutils.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pairing.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\plist.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\raop.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\raop_buffer.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\raop_rtp.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rsakey.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rsapem.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\sdp.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\lib\ed25519\license.txt">
+      <Filter>ed25519</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\lib\playfair\LICENSE.md">
+      <Filter>playfair</Filter>
+    </None>
+    <None Include="src\lib\dnssd.m">
+      <Filter>shairplay</Filter>
+    </None>
+    <None Include="src\lib\Makefile.am">
+      <Filter>shairplay</Filter>
+    </None>
+  </ItemGroup>
+</Project>
