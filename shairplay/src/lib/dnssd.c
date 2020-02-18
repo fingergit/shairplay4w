@@ -279,10 +279,10 @@ dnssd_register_raop(dnssd_t *dnssd, const char *name, unsigned short port, const
 	strncat(servname, "@", sizeof(servname)-strlen(servname)-1);
 	strncat(servname, name, sizeof(servname)-strlen(servname)-1);
 
-	int len = dnssd->TXTRecordGetLength(&txtRecord) + 1;
-	char* txt = malloc(len);
-	txt[len - 1] = '\0';
-	memcpy(txt, dnssd->TXTRecordGetBytesPtr(&txtRecord), len);
+//	int len = dnssd->TXTRecordGetLength(&txtRecord) + 1;
+//	char* txt = malloc(len);
+//	txt[len - 1] = '\0';
+//	memcpy(txt, dnssd->TXTRecordGetBytesPtr(&txtRecord), len);
 	/* Register the service */
 	ret = dnssd->DNSServiceRegister(&dnssd->raopService, 0, 0,
 	                          servname, "_raop._tcp",
@@ -325,10 +325,10 @@ dnssd_register_airplay(dnssd_t *dnssd, const char *name, unsigned short port, co
 	dnssd->TXTRecordSetValue(&txtRecord, "features", strlen(features), features);
 	dnssd->TXTRecordSetValue(&txtRecord, "model", strlen(GLOBAL_MODEL), GLOBAL_MODEL);
 
-	int len = dnssd->TXTRecordGetLength(&txtRecord) + 1;
-	char* txt = malloc(len);
-	txt[len - 1] = '\0';
-	memcpy(txt, dnssd->TXTRecordGetBytesPtr(&txtRecord), len);
+//	int len = dnssd->TXTRecordGetLength(&txtRecord) + 1;
+//	char* txt = malloc(len);
+//	txt[len - 1] = '\0';
+//	memcpy(txt, dnssd->TXTRecordGetBytesPtr(&txtRecord), len);
 
 	/* Register the service */
 	ret = dnssd->DNSServiceRegister(&dnssd->airplayService, 0, 0,

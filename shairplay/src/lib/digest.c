@@ -100,7 +100,7 @@ digest_is_valid(const char *our_realm, const char *password,
 	if (!authorization) {
 		return 0;
 	}
-	current = auth = _strdup(authorization);
+	current = auth = strdup(authorization);
 	if (!auth) {
 		return 0;
 	}
