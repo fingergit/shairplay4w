@@ -32,6 +32,7 @@ struct pairing_s {
 
 typedef enum {
 	STATUS_INITIAL,
+    STATUS_SETUP,
 	STATUS_HANDSHAKE,
 	STATUS_FINISHED
 } status_t;
@@ -99,6 +100,14 @@ pairing_get_public_key(pairing_t *pairing, unsigned char public_key[32])
 	memcpy(public_key, pairing->ed_public, 32);
 }
 
+void
+pairing_get_ecdh_secret_key(pairing_session_t *session, unsigned char ecdh_secret[32])
+{
+	assert(session);
+	memcpy(ecdh_secret, session->ecdh_secret, 32);
+}
+
+
 pairing_session_t *
 pairing_session_init(pairing_t *pairing)
 {
@@ -117,6 +126,23 @@ pairing_session_init(pairing_t *pairing)
 	session->status = STATUS_INITIAL;
 
 	return session;
+}
+
+void
+pairing_session_set_setup_status(pairing_session_t *session)
+{
+    assert(session);
+    session->status = STATUS_SETUP;
+}
+
+int
+pairing_session_check_handshake_status(pairing_session_t *session)
+{
+    assert(session);
+    if (session->status != STATUS_SETUP) {
+        return -1;
+    }
+    return 0;
 }
 
 int

@@ -21,6 +21,8 @@
 #include "dnssd.h"
 #include "raop.h"
 
+#include "callback.h"
+
 static int running;
 
 #ifndef WIN32
@@ -49,69 +51,6 @@ init_signals(void)
 }
 
 #endif
-
-static void *
-audio_init(void *cls, int bits, int channels, int samplerate)
-{
-	return fopen("audio.pcm", "wb");
-}
-
-static void
-audio_set_volume(void *cls, void *session, float volume)
-{
-	printf("Setting volume to %f\n", volume);
-}
-
-static void
-audio_set_metadata(void *cls, void *session, const void *buffer, int buflen)
-{
-	int orig = buflen;
-	FILE *file = fopen("metadata.bin", "wb");
-	while (buflen > 0) {
-		buflen -= fwrite((char*)buffer+orig-buflen, 1, buflen, file);
-	}
-	fclose(file);
-	printf("Metadata of length %d saved as metadata.bin\n", orig);
-}
-
-static void
-audio_set_coverart(void *cls, void *session, const void *buffer, int buflen)
-{
-	int orig = buflen;
-	FILE *file = fopen("coverart.jpg", "wb");
-	while (buflen > 0) {
-		buflen -= fwrite((char*)buffer+orig-buflen, 1, buflen, file);
-	}
-	fclose(file);
-	printf("Coverart of length %d saved as coverart.jpg\n", orig);
-}
-
-static void
-audio_process(void *cls, void *session, const void *buffer, int buflen)
-{
-	int orig = buflen;
-	while (buflen > 0) {
-		buflen -= fwrite((char*)buffer+orig-buflen, 1, buflen, session);
-	}
-}
-
-static void
-audio_flush(void *cls, void *session)
-{
-	printf("Flushing audio\n");
-}
-
-static void
-audio_destroy(void *cls, void *session)
-{
-	fclose(session);
-}
-
-static void
-raop_log_callback(void *cls, int level, const char *msg)
-{
-	printf("RAOP LOG(%d): %s\n", level, msg);
-}
 
 int
 main(int argc, char *argv[])

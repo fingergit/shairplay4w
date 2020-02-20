@@ -28,6 +28,9 @@ typedef struct raop_rtp_s raop_rtp_t;
 raop_rtp_t *raop_rtp_init(logger_t *logger, raop_callbacks_t *callbacks, const char *remote,
                           const char *rtpmap, const char *fmtp,
                           const unsigned char *aeskey, const unsigned char *aesiv);
+raop_rtp_t*
+raop_rtp_init_airplay(logger_t* logger, raop_callbacks_t* callbacks, const unsigned char* remote, int remotelen,
+    const unsigned char* aeskey, const unsigned char* aesiv, const unsigned char* ecdh_secret, unsigned short timing_rport);
 void raop_rtp_start(raop_rtp_t *raop_rtp, int use_udp, unsigned short control_rport, unsigned short timing_rport,
                     unsigned short *control_lport, unsigned short *timing_lport, unsigned short *data_lport);
 void raop_rtp_set_volume(raop_rtp_t *raop_rtp, float volume);

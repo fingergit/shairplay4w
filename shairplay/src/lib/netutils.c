@@ -58,9 +58,9 @@ netutils_init_socket(unsigned short *port, int use_ipv6, int use_udp)
 
 	struct sockaddr_storage saddr;
 	socklen_t socklen;
-	int server_fd;
+	SOCKET server_fd;
 	int ret;
-	int reuseaddr = 1;
+	char reuseaddr = 1;
 
 	assert(port);
 

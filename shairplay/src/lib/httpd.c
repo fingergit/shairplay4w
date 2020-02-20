@@ -22,11 +22,15 @@
 #include "http_request.h"
 #include "compat.h"
 #include "logger.h"
+#ifdef WIN32
+#include "stdint.h"
+#endif // WIN32
+
 
 struct http_connection_s {
 	int connected;
 
-	int socket_fd;
+	int64_t socket_fd;
 	void *user_data;
 	http_request_t *request;
 };
@@ -98,7 +102,7 @@ httpd_destroy(httpd_t *httpd)
 }
 
 static int
-httpd_add_connection(httpd_t *httpd, int fd, unsigned char *local, int local_len, unsigned char *remote, int remote_len)
+httpd_add_connection(httpd_t *httpd, int64_t fd, unsigned char *local, int local_len, unsigned char *remote, int remote_len)
 {
 	void *user_data;
 	int i;
@@ -136,7 +140,8 @@ httpd_accept_connection(httpd_t *httpd, int server_fd, int is_ipv6)
 	socklen_t local_saddrlen;
 	unsigned char *local, *remote;
 	int local_len, remote_len;
-	int ret, fd;
+	int ret;
+	int64_t fd;
 
 	remote_saddrlen = sizeof(remote_saddr);
 	fd = accept(server_fd, (struct sockaddr *)&remote_saddr, &remote_saddrlen);
@@ -193,7 +198,7 @@ httpd_thread(void *arg)
 	while (1) {
 		fd_set rfds;
 		struct timeval tv;
-		int nfds=0;
+		int64_t nfds=0;
 		int ret;
 
 		MUTEX_LOCK(httpd->run_mutex);
@@ -224,7 +229,7 @@ httpd_thread(void *arg)
 			}
 		}
 		for (i=0; i<httpd->max_connections; i++) {
-			int socket_fd;
+			int64_t socket_fd;
 			if (!httpd->connections[i].connected) {
 				continue;
 			}

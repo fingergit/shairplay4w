@@ -90,7 +90,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;$(SolutionDir)plist\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;$(SolutionDir)plist\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,7 +122,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;$(SolutionDir)plist\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +141,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\lib;$(ProjectDir)include\shairplay;$(SolutionDir)plist\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -151,12 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\plist\include\plist.h" />
+    <ClInclude Include="include\shairplay\airplay.h" />
     <ClInclude Include="include\shairplay\dnssd.h" />
     <ClInclude Include="include\shairplay\raop.h" />
+    <ClInclude Include="src\lib\aes.h" />
+    <ClInclude Include="src\lib\aes.hpp" />
     <ClInclude Include="src\lib\aes_ctr.h" />
     <ClInclude Include="src\lib\alac\alac.h" />
     <ClInclude Include="src\lib\alac\stdint_win.h" />
     <ClInclude Include="src\lib\base64.h" />
+    <ClInclude Include="src\lib\byteutils.h" />
     <ClInclude Include="src\lib\compat.h" />
     <ClInclude Include="src\lib\crypto\bigint.h" />
     <ClInclude Include="src\lib\crypto\bigint_impl.h" />
@@ -181,6 +186,7 @@
     <ClInclude Include="src\lib\http_response.h" />
     <ClInclude Include="src\lib\logger.h" />
     <ClInclude Include="src\lib\memalign.h" />
+    <ClInclude Include="src\lib\mirror_buffer.h" />
     <ClInclude Include="src\lib\netutils.h" />
     <ClInclude Include="src\lib\pairing.h" />
     <ClInclude Include="src\lib\playfair\omg_hax.h" />
@@ -189,6 +195,7 @@
     <ClInclude Include="src\lib\raop_buffer.h" />
     <ClInclude Include="src\lib\raop_handlers.h" />
     <ClInclude Include="src\lib\raop_rtp.h" />
+    <ClInclude Include="src\lib\raop_rtp_mirror.h" />
     <ClInclude Include="src\lib\rsakey.h" />
     <ClInclude Include="src\lib\rsapem.h" />
     <ClInclude Include="src\lib\sdp.h" />
@@ -197,9 +204,12 @@
     <ClInclude Include="src\lib\utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\lib\aes2.c" />
     <ClCompile Include="src\lib\aes_ctr.c" />
+    <ClCompile Include="src\lib\airplay.c" />
     <ClCompile Include="src\lib\alac\alac.c" />
     <ClCompile Include="src\lib\base64.c" />
+    <ClCompile Include="src\lib\byteutils.c" />
     <ClCompile Include="src\lib\crypto\aes.c" />
     <ClCompile Include="src\lib\crypto\bigint.c" />
     <ClCompile Include="src\lib\crypto\hmac.c" />
@@ -231,6 +241,7 @@
     <ClCompile Include="src\lib\http_request.c" />
     <ClCompile Include="src\lib\http_response.c" />
     <ClCompile Include="src\lib\logger.c" />
+    <ClCompile Include="src\lib\mirror_buffer.c" />
     <ClCompile Include="src\lib\netutils.c" />
     <ClCompile Include="src\lib\pairing.c" />
     <ClCompile Include="src\lib\playfair\hand_garble.c" />
@@ -242,6 +253,7 @@
     <ClCompile Include="src\lib\raop.c" />
     <ClCompile Include="src\lib\raop_buffer.c" />
     <ClCompile Include="src\lib\raop_rtp.c" />
+    <ClCompile Include="src\lib\raop_rtp_mirror.c" />
     <ClCompile Include="src\lib\rsakey.c" />
     <ClCompile Include="src\lib\rsapem.c" />
     <ClCompile Include="src\lib\sdp.c" />

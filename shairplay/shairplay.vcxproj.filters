@@ -34,6 +34,9 @@
     <Filter Include="include">
       <UniqueIdentifier>{14485e56-9761-460b-8cd4-9cb378a0b064}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plist">
+      <UniqueIdentifier>{467e8840-0acc-4497-8356-a33c7529e6cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\alac\alac.h">
@@ -168,6 +171,27 @@
     <ClInclude Include="include\shairplay\raop.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\shairplay\airplay.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plist\include\plist.h">
+      <Filter>plist</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\raop_rtp_mirror.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\byteutils.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\mirror_buffer.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\aes.h">
+      <Filter>shairplay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\aes.hpp">
+      <Filter>shairplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\alac\alac.c">
@@ -300,6 +324,21 @@
       <Filter>shairplay</Filter>
     </ClCompile>
     <ClCompile Include="src\lib\utils.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\airplay.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\raop_rtp_mirror.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\byteutils.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mirror_buffer.c">
+      <Filter>shairplay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\aes2.c">
       <Filter>shairplay</Filter>
     </ClCompile>
   </ItemGroup>

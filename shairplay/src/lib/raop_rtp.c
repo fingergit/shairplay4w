@@ -162,6 +162,71 @@ raop_rtp_init(logger_t *logger, raop_callbacks_t *callbacks, const char *remote,
 	return raop_rtp;
 }
 
+static int
+raop_rtp_parse_remote_airplay(raop_rtp_t* raop_rtp, const unsigned char* remote, int remotelen)
+{
+	char current[25];
+	int family;
+	int ret;
+	assert(raop_rtp);
+	if (remotelen == 4) {
+		family = AF_INET;
+	}
+	else if (remotelen == 16) {
+		family = AF_INET6;
+	}
+	else {
+		return -1;
+	}
+	memset(current, 0, sizeof(current));
+	sprintf(current, "%d.%d.%d.%d", remote[0], remote[1], remote[2], remote[3]);
+	logger_log(raop_rtp->logger, LOGGER_DEBUG, "raop_rtp_parse_remote_airplay ip = %s", current);
+	ret = netutils_parse_address(family, current,
+		&raop_rtp->remote_saddr,
+		sizeof(raop_rtp->remote_saddr));
+	if (ret < 0) {
+		return -1;
+	}
+	raop_rtp->remote_saddr_len = ret;
+	return 0;
+}
+
+raop_rtp_t*
+raop_rtp_init_airplay(logger_t* logger, raop_callbacks_t* callbacks, const unsigned char* remote, int remotelen,
+	const unsigned char* aeskey, const unsigned char* aesiv, const unsigned char* ecdh_secret, unsigned short timing_rport)
+{
+	raop_rtp_t* raop_rtp;
+
+	assert(logger);
+	assert(callbacks);
+
+	raop_rtp = calloc(1, sizeof(raop_rtp_t));
+	if (!raop_rtp) {
+		return NULL;
+	}
+	raop_rtp->logger = logger;
+	raop_rtp->timing_rport = timing_rport;
+
+	memcpy(&raop_rtp->callbacks, callbacks, sizeof(raop_callbacks_t));
+    raop_rtp->buffer = raop_buffer_init(logger, aeskey, aesiv, ecdh_secret);
+    if (!raop_rtp->buffer) {
+        free(raop_rtp);
+        return NULL;
+    }
+	if (raop_rtp_parse_remote_airplay(raop_rtp, remote, remotelen) < 0) {
+		free(raop_rtp);
+		return NULL;
+	}
+
+	raop_rtp->running = 0;
+	raop_rtp->joined = 1;
+	raop_rtp->flush = NO_FLUSH;
+
+	MUTEX_CREATE(raop_rtp->run_mutex);
+    COND_CREATE(raop_rtp->time_cond);
+	return raop_rtp;
+}
+
 void
 raop_rtp_destroy(raop_rtp_t *raop_rtp)
 {
@@ -169,6 +234,7 @@ raop_rtp_destroy(raop_rtp_t *raop_rtp)
 		raop_rtp_stop(raop_rtp);
 
 		MUTEX_DESTROY(raop_rtp->run_mutex);
+        COND_DESTROY(raop_rtp->time_cond);
 		raop_buffer_destroy(raop_rtp->buffer);
 		free(raop_rtp->metadata);
 		free(raop_rtp->coverart);

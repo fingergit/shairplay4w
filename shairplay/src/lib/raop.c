@@ -31,6 +31,7 @@
 #include "netutils.h"
 #include "logger.h"
 #include "compat.h"
+#include "raop_rtp_mirror.h"
 
 /* Actually 345 bytes for 2048-bit key */
 #define MAX_SIGNATURE_LEN 512
@@ -59,11 +60,14 @@ struct raop_s {
 
 	/* Password information */
 	char password[MAX_PASSWORD_LEN+1];
+
+	unsigned short port;
 };
 
 struct raop_conn_s {
 	raop_t *raop;
 	raop_rtp_t *raop_rtp;
+	raop_rtp_mirror_t* raop_rtp_mirror;
 	fairplay_t *fairplay;
 	pairing_session_t *pairing;
 
@@ -205,6 +209,7 @@ conn_request(void *ptr, http_request_t *request, http_response_t **response)
 
 	http_response_add_header(*response, "CSeq", cseq);
 	http_response_add_header(*response, "Apple-Jack-Status", "connected; type=analog");
+	http_response_add_header(*response, "Server", "AirTunes/220.68");
 
 	challenge = http_request_get_header(request, "Apple-Challenge");
 	if (!require_auth && challenge) {
@@ -224,7 +229,14 @@ conn_request(void *ptr, http_request_t *request, http_response_t **response)
 	if (require_auth) {
 		/* Do nothing in case of authentication request */
 		handler = &raop_handler_none;
-	} else if (!strcmp(method, "POST") && !strcmp(url, "/pair-setup")) {
+	} 
+	else if (!strcmp(method, "GET") && !strcmp(url, "/info")) {
+		handler = &raop_handler_info;
+	}
+	else if (!strcmp(method, "POST") && !strcmp(url, "/pair-pin-start")) {
+		// TODO: fingergit
+	}
+	else if (!strcmp(method, "POST") && !strcmp(url, "/pair-setup")) {
 		handler = &raop_handler_pairsetup;
 	} else if (!strcmp(method, "POST") && !strcmp(url, "/pair-verify")) {
 		handler = &raop_handler_pairverify;
@@ -240,7 +252,14 @@ conn_request(void *ptr, http_request_t *request, http_response_t **response)
 		handler = &raop_handler_get_parameter;
 	} else if (!strcmp(method, "SET_PARAMETER")) {
 		handler = &raop_handler_set_parameter;
-	} else if (!strcmp(method, "FLUSH")) {
+	}
+	else if (!strcmp(method, "POST") && !strcmp(url, "/feedback")) {
+		handler = &raop_handler_feedback;
+	}
+	else if (!strcmp(method, "RECORD")) {
+        handler = &raop_handler_record;
+	} 
+	else if (!strcmp(method, "FLUSH")) {
 		const char *rtpinfo;
 		int next_seq = -1;
 
@@ -264,6 +283,11 @@ conn_request(void *ptr, http_request_t *request, http_response_t **response)
 			raop_rtp_destroy(conn->raop_rtp);
 			conn->raop_rtp = NULL;
 		}
+        if (conn->raop_rtp_mirror) {
+            /* Destroy our mirror session */
+            raop_rtp_mirror_destroy(conn->raop_rtp_mirror);
+            conn->raop_rtp_mirror = NULL;
+		}
 	}
 	if (handler != NULL) {
 		handler(conn, request, *response, &response_data, &response_datalen);
@@ -285,6 +309,10 @@ conn_destroy(void *ptr)
 		/* This is done in case TEARDOWN was not called */
 		raop_rtp_destroy(conn->raop_rtp);
 	}
+    if (conn->raop_rtp_mirror) {
+        /* This is done in case TEARDOWN was not called */
+        raop_rtp_mirror_destroy(conn->raop_rtp_mirror);
+    }
 	free(conn->local);
 	free(conn->remote);
 	pairing_session_destroy(conn->pairing);
@@ -412,6 +440,27 @@ raop_set_log_level(raop_t *raop, int level)
 	assert(raop);
 
 	logger_set_level(raop->logger, level);
+}
+
+void
+raop_set_port(raop_t* raop, unsigned short port)
+{
+	assert(raop);
+	raop->port = port;
+}
+
+unsigned short
+raop_get_port(raop_t* raop)
+{
+	assert(raop);
+	return raop->port;
+}
+
+void *
+raop_get_callback_cls(raop_t *raop)
+{
+    assert(raop);
+    return raop->callbacks.cls;
 }
 
 void
